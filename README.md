@@ -93,6 +93,7 @@ Embeddings	Sentence Transformers
 Vector Search	FAISS
 Visualization	Plotly
 Data	CSV Dataset
+
 📊 System Architecture
 User Startup Idea
         │
