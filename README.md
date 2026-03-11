@@ -6,12 +6,16 @@ The system analyzes a startup idea, predicts funding potential, finds similar st
 
 📸 Dashboard Preview
 Startup Evaluation Dashboard
+<img width="1836" height="955" alt="dashboard" src="https://github.com/user-attachments/assets/0688ac1f-045e-44d6-8224-7084d9b0e7b7" />
 
 Startup Analysis
+<img width="1343" height="915" alt="startup-analysis" src="https://github.com/user-attachments/assets/a24e799b-95cf-4cc9-9631-0a9ee3543d6a" />
 
 Startup Score
+<img width="1375" height="893" alt="startup-score" src="https://github.com/user-attachments/assets/c894017a-1197-4c4b-9f4b-fc51b6afc43d" />
 
 Startup Metrics Radar Chart
+<img width="639" height="558" alt="startup-metrics-overview" src="https://github.com/user-attachments/assets/0c1bf802-65f5-4b81-83e9-067d53758ee9" />
 
 ✨ Features
 🤖 AI Startup Idea Analysis
