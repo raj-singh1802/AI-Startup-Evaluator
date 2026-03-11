@@ -1,0 +1,16 @@
+pandas
+numpy
+scikit-learn
+streamlit
+openai
+langchain
+faiss-cpu
+python-dotenv
+fastapi
+uvicorn
+joblib
+google-generativeai
+groq
+python-dotenv
+sentence-transformers
+plotly
