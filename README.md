@@ -1,23 +1,19 @@
 🚀 AI Startup Evaluator
 
-An AI-powered platform that evaluates startup ideas using Large Language Models, vector similarity search, and a scoring engine to simulate how venture capital firms assess startups.
+An AI-powered platform that evaluates startup ideas using Large Language Models, vector similarity search, and scoring models to simulate how venture capital firms assess startups.
 
-The system analyzes an idea, predicts its funding potential, compares it with similar startups, and generates an investor-style evaluation report.
+The system analyzes a startup idea, predicts funding potential, finds similar startups, and generates an investor-style evaluation report.
 
 📸 Dashboard Preview
 Startup Evaluation Dashboard
-<img width="1836" height="955" alt="dashboard" src="https://github.com/user-attachments/assets/9be62a8f-e1f6-41f7-88db-1dc938948e7c" />
 
 Startup Analysis
-<img width="1343" height="915" alt="startup-analysis" src="https://github.com/user-attachments/assets/97cd4b73-4c20-4c71-81a2-0b4c91bf7c0e" />
 
 Startup Score
-<img width="1375" height="893" alt="startup-score" src="https://github.com/user-attachments/assets/a4ae3d97-4169-4271-a737-c352e127d40f" />
 
 Startup Metrics Radar Chart
-<img width="639" height="558" alt="startup-metrics-overview" src="https://github.com/user-attachments/assets/14b2b722-6dd9-4928-95cf-de72d11a55e2" />
 
-🔹 Features
+✨ Features
 🤖 AI Startup Idea Analysis
 
 Uses an LLM to analyze startup ideas and extract:
@@ -34,19 +30,19 @@ Competition level
 
 📊 Startup Scoring Engine
 
-A scoring system that evaluates:
+Evaluates startup ideas based on:
 
 Market potential
 
 Competitive advantage
 
-Innovation
+Innovation potential
 
 Risk level
 
 💰 Funding Probability Predictor
 
-Estimates the probability of venture capital funding based on the startup characteristics.
+Predicts the likelihood of venture capital funding based on startup characteristics.
 
 🔎 Similar Startup Detection
 
@@ -56,25 +52,25 @@ Sentence Transformers
 
 FAISS Vector Search
 
-to find real similar startups from the dataset.
+to identify similar startups from the dataset.
 
 🧠 AI VC Investor Verdict
 
-Generates a venture capitalist style investment opinion explaining:
+Generates a venture capitalist-style evaluation describing:
 
-strengths
+Strengths
 
-risks
+Risks
 
-investment viability
+Investment viability
 
 📈 Market Trend Analysis
 
-Analyzes the industry trends and growth potential for the startup idea.
+Analyzes the industry growth potential and market demand for the startup idea.
 
 📊 Interactive Dashboard
 
-Built with Streamlit, featuring:
+Built using Streamlit, featuring:
 
 Score gauge visualization
 
@@ -153,16 +149,15 @@ AI-Startup-Evaluator
 Clone the repository:
 
 git clone https://github.com/raj-singh1802/AI-Startup-Evaluator.git
-
 cd AI-Startup-Evaluator
 
 Create a virtual environment:
 
 python -m venv venv
 
-Activate the environment:
+Activate it:
 
-Windows:
+Windows
 
 venv\Scripts\activate
 
@@ -171,27 +166,27 @@ Install dependencies:
 pip install -r requirements.txt
 🔐 Environment Variables
 
-Create a .env file in the project root.
+Create a .env file in the project root:
 
 GROQ_API_KEY=your_api_key_here
 ▶️ Run the Application
 streamlit run app/streamlit_app.py
 
-The app will open in your browser.
+The app will open automatically in your browser.
 
 📊 Dataset Generation
 
-The project includes a script to automatically generate a dataset of AI startups.
+The project includes a script to generate a dataset of AI startups.
 
 Run:
 
 python scripts/generate_startup_dataset.py
 
-This will create a dataset of ~500 startup companies.
+This will generate ~500 startup entries for similarity search.
 
 📄 Export Startup Evaluation Report
 
-Users can download the full evaluation report including:
+Users can download a full evaluation report including:
 
 Startup analysis
 
@@ -205,17 +200,17 @@ Market trend analysis
 
 🚀 Future Improvements
 
-Possible extensions:
+Possible extensions include:
 
-Real-time startup data integration
+Real-time startup database integration
 
 Startup idea comparison tool
 
 AI startup idea generator
 
-Deployment with Docker
+Docker deployment
 
-Integration with Crunchbase or YC datasets
+Integration with Crunchbase / YC datasets
 
 👨‍💻 Author
 
@@ -223,7 +218,7 @@ Raj Singh
 
 AI / Machine Learning Engineer
 
-GitHub
+GitHub:
 https://github.com/raj-singh1802
 
-⭐ If you found this project useful, consider giving it a star!
+⭐ If you found this project useful, consider giving it a star.
