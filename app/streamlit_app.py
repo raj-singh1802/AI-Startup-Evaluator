@@ -21,6 +21,16 @@ from src.funding_predictor import predict_funding_probability
 
 st.set_page_config(page_title="AI Startup Evaluator", layout="wide")
 
+st.markdown(
+    """
+        <style>
+            .block-container {  
+                padding-top: 2rem;
+            }
+        </style>
+    """,
+    unsafe_allow_html=True
+)
 
 # ---------------------------------------------------
 # SIDEBAR
@@ -66,6 +76,11 @@ st.markdown("""
 
 st.title("🚀 AI Startup Evaluator")
 
+st.markdown(
+    "<p style='color:gray;font-size:16px;'>AI-powered platform to evaluate startup ideas using LLM analysis, market trends, and venture capital scoring.</p>",
+    unsafe_allow_html=True
+)
+
 idea = st.text_area("Enter your startup idea")
 
 
@@ -87,11 +102,16 @@ if st.button("Evaluate Startup"):
 
         analysis = analyze_startup(idea)
 
-        score = score_startup(analysis)
+        score_data = score_startup(idea, analysis)
 
-        recommendation = startup_recommendation(score)
+        score = score_data["score"]
 
-        funding_probability = predict_funding_probability(analysis)
+        breakdown = score_data["breakdown"]
+
+
+        funding_probability = predict_funding_probability(idea,analysis)
+
+        recommendation = startup_recommendation(idea,score,funding_probability)
 
         similar = find_similar_startups(idea)
 
@@ -156,6 +176,45 @@ if st.button("Evaluate Startup"):
             height=400
         )
 
+        # ---------------------------------------------------
+        # VC Analytics Chart
+        # ---------------------------------------------------
+        import pandas as pd
+        strength_df = pd.DataFrame({
+            "Metric": [
+                "Market Opportunity",
+                "Competitive Advantage",
+                "Business Model",
+                "Customer Demand",
+                "Innovation"
+            ],
+            "Score": [
+                breakdown["market"],
+                breakdown["competition"],
+                breakdown["business_model"],
+                breakdown["demand"],
+                breakdown["innovation"]
+            ]
+        })
+
+        fig_strength = go.Figure(
+            go.Bar(
+                x=strength_df["Score"],
+                y=strength_df["Metric"],
+                orientation="h"
+            )
+        )
+
+        fig_strength.update_layout(
+            title="Startup Strength Breakdown",
+            xaxis=dict(range=[0,10]),
+            height=350
+        )
+
+        st.subheader("📈 Startup Strength Breakdown")
+
+        st.plotly_chart(fig_strength, use_container_width=True)
+
 
         # ---------------------------------------------------
         # SCORE GAUGE
@@ -207,14 +266,21 @@ if st.button("Evaluate Startup"):
 
                         st.markdown(
                             f"""
-                            **{s['name']}**
-
-                            {s['description']}
-                            """
+                            <div style="padding:12px;border-radius:8px;background-color:#f5f7fb;margin-bottom:10px">
+                            <b>{s['name']}</b><br>
+                            <span style="color:gray">{s['description']}</span>
+                            </div>
+                            """,
+                            unsafe_allow_html=True
                         )
+
 
                     else:
                         st.success(s)
+            
+            st.subheader("📊 Startup Metrics Overview")
+
+            st.plotly_chart(fig_radar, use_container_width=True)
 
 
         # ---------------------------------------------------
@@ -240,12 +306,13 @@ if st.button("Evaluate Startup"):
             )
 
 
-            st.subheader("💰 Funding Probability")
+            metric1, metric2 = st.columns(2)
 
-            st.metric(
-                "Chance of VC Funding",
-                f"{funding_probability}%"
-            )
+            with metric1:
+                st.metric("Startup Score", f"{score}/10")
+
+            with metric2:
+                st.metric("Funding Probability", f"{funding_probability}%")
 
 
             st.subheader("Recommendation")
@@ -253,9 +320,9 @@ if st.button("Evaluate Startup"):
             st.write(recommendation)
 
 
-            st.subheader("📊 Startup Metrics Overview")
+            # st.subheader("📊 Startup Metrics Overview")
 
-            st.plotly_chart(fig_radar, use_container_width=True)
+            # st.plotly_chart(fig_radar, use_container_width=True)
 
 
         # ---------------------------------------------------
