@@ -15,6 +15,9 @@
 > Submit a startup idea. Get an instant VC-grade evaluation — complete with funding probability, competitor analysis, investor verdict, and a downloadable report.
 
 ---
+## 🚀 Live Demo
+https://ai-startup-evaluator.streamlit.app
+
 
 ![Dashboard Preview](assets/dashboard.png)
 
