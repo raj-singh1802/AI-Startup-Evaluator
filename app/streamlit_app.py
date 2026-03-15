@@ -15,6 +15,21 @@ from src.market_trends import analyze_market_trend
 from src.funding_predictor import predict_funding_probability
 
 
+import random
+sample_startups = [
+    "AI personal finance advisor for Gen Z",
+    "AI legal assistant for small businesses",
+    "AI powered diet planning app",
+    "AI real estate investment advisor",
+    "AI coding mentor for beginners",
+    "AI travel planner based on budget",
+    "AI mental health therapist chatbot",
+    "AI job interview preparation coach",
+    "AI fitness coach with injury prevention",
+    "AI personalized education platform"
+]
+
+
 # ---------------------------------------------------
 # PAGE CONFIG
 # ---------------------------------------------------
@@ -81,7 +96,20 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-idea = st.text_area("Enter your startup idea")
+if "idea" not in st.session_state:
+    st.session_state.idea = ""
+
+colA, colB = st.columns([4,1])
+
+with colA:
+    idea = st.text_area("Enter your startup idea", value=st.session_state.idea)
+
+with colB:
+    if st.button("🎲 Random Idea"):
+        st.session_state.idea = random.choice(sample_startups)
+
+st.caption("Example ideas: AI fitness coach, AI travel planner, AI resume optimizer")
+
 
 
 # ---------------------------------------------------
